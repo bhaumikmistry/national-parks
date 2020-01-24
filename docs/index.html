@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body translate="no">
+    <nav>
+        <div id="logo">National Parks</div>
+
+        <label for="drop" class="toggle">Menu</label>
+        <input type="checkbox" id="drop" />
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li>
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-1" class="toggle">List of Parks +</label>
+                    <a href="#">List of Parks</a>
+                    <input type="checkbox" id="drop-1"/>
+                    <ul>
+                        <li><a href="#"></a></li>                        
+                    </ul> 
+                </li>
+                <li>
+            </ul>        
+    </nav>
+    <canvas height="500" width="500" id="top"></canvas>
+    <canvas height="500" width="500" id="bottom"></canvas>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="400" height="200">
+        <path id="path1" d="M197.34 181.94C197.34 147.35 235.7 95.64 197.34 43.58C158.98 -8.47 75.42 27.14 48.03 54.54C20.63 81.94 6.93 102.49 20.63 165.5C34.33 228.51 74.05 201.12 103.5 212.08C132.96 223.03 149.4 172.35 178.16 150.43C206.93 128.51 178.16 103.86 174.05 70.98C171.31 49.06 156.24 39.93 128.85 43.58L48.03 90.16L28.85 127.14L42.55 150.43L98.71 138.1" stroke-width="0" stroke="#000000" fill="none"></path>
+        <g id="duplicate"></g>
+    </svg> -->
+    <svg version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 500 500" width="500" height="500"><defs>
+        <path d="M319.37 305.67C319.37 271.08 357.73 219.37 319.37 167.31C281.02 115.26 197.46 150.87 170.06 178.27C142.66 205.67 128.96 226.21 142.66 289.23C156.36 352.24 196.09 324.84 225.54 335.8C254.99 346.76 271.43 296.08 300.2 274.16C328.96 252.24 300.2 227.58 296.09 194.71C293.35 172.79 278.28 163.66 250.88 167.31L170.06 213.89L150.88 250.87L164.58 274.16L220.74 261.83" 
+        id="path1">
+        </path>
+        </defs>
+        <g><g><g><g><use xlink:href="#b1AoyPgRvL" opacity="0" fill-opacity="0" stroke="#000000" stroke-width="0" fill="none" stroke-opacity="1">
+        </use></g></g></g></g>
+    </svg>
+    <script type="text/javascript" src="js/draw.js">  </script>  
+</body>
+</html>
+

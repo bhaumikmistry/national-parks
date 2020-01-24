@@ -1,0 +1,197 @@
+/* CSS Document */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+html, body {
+  height: 90%;
+}
+
+body {
+  background: white;
+}
+
+body {
+  font-size: 22px;
+  line-height: 32px;
+  color: black;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+  color: #FFF;
+}
+
+h3 {
+  font-size: 30px;
+  line-height: 34px;
+  text-align: center;
+  color: #FFF;
+}
+
+h3 a {
+  color: #FFF;
+}
+
+a {
+  color: #FFF;
+}
+
+h1 {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 60px;
+  line-height: 70px;
+  font-family: 'Bree Serif', 'serif';
+}
+
+#container {
+  margin: 0 auto;
+  max-width: 890px;
+}
+
+p {
+  text-align: center;
+}
+
+.toggle, [id^=drop] {
+  display: none;
+}
+
+/* Giving a background-color to the nav container. */
+nav {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+#logo {
+  display: block;
+  padding: 0 30px;
+  float: left;
+  font-size: 20px;
+  line-height: 60px;
+  color: #254441;
+}
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+nav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav ul {
+  float: right;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  color: black;
+}
+
+nav ul li {
+  margin: 0px;
+  display: inline-block;
+  float: left;
+  background-color: #ffffff;
+}
+
+nav a {
+  display: block;
+  padding: 14px 20px;
+  color: #254441;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+nav ul li ul li:hover {
+  background: #ffffff;
+  color: #254441;
+}
+
+nav a:hover {
+  background-color: #667C7A;
+  color: white;
+}
+
+nav ul ul {
+  display: none;
+  position: absolute;
+  /* has to be the same number as the "line-height" of "nav a" */
+  top: 60px;
+}
+
+nav ul li:hover > ul {
+  display: inherit;
+}
+
+nav ul ul li {
+  width: 150px;
+  float: none;
+  display: list-item;
+  position: relative;
+}
+
+nav ul ul ul li {
+  position: relative;
+  top: -60px;
+  /* has to be the same number as the "width" of "nav ul ul li" */
+  left: 170px;
+}
+
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */
+/* Positioning the navigation items inline */
+/* Styling the links */
+/* Background color change on Hover */
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+/* Display Dropdowns on Hover */
+/* Fisrt Tier Dropdown */
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+/* Change ' +' in order to change the Dropdown symbol */
+li > a:after {
+  content: ' +';
+}
+
+li > a:only-child:after {
+  content: '';
+}
+
+/* Media Queries
+--------------------------------------------- */
+/* Hide Dropdowns by Default */
+/* Hide menus on hover */
+/* Fisrt Tier Dropdown */
+@media all and (max-width: 330px) {
+  nav ul li {
+    display: block;
+    width: 94%;
+  }
+}
+
+canvas {
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+path {
+  fill: none;
+}
+/*# sourceMappingURL=style.css.map */
