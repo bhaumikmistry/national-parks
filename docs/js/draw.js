@@ -200,6 +200,7 @@ var timer;
 var canvas = document.querySelector('#top');
 var ctx = canvas.getContext('2d');
 
+console.log(orig)
 startDrawingPath();
 
 function startDrawingPath() {
@@ -235,7 +236,7 @@ function stopDrawingPath() {
 function buildPath() {
     var nextPoint = points.length * distancePerPoint;
     var pathLength = orig.getTotalLength();
-
+    console.log(pathLength)
     if (nextPoint <= pathLength) {
         points.push(orig.getPointAtLength(nextPoint));
         redrawCanvas();
