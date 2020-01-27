@@ -191,16 +191,26 @@ function run() {
 }
 
 
-var distancePerPoint = 10;
+var distancePerPoint = 3;
 var drawFPS = 30;
 
-var orig = document.querySelector('path');
+var origs = document.querySelectorAll('path');
 var points;
 var timer;
 var canvas = document.querySelector('#top');
 var ctx = canvas.getContext('2d');
+var origs_length = origs.length; 
+var origs_path_count = 0;
 
-console.log(orig)
+console.log(origs);
+console.log(origs_length);
+// for (var i = 0; i<origs.length;i++)
+// {
+//   console.log(origs[i]);
+// }
+
+var orig = origs[origs_path_count];
+
 startDrawingPath();
 
 function startDrawingPath() {
@@ -208,11 +218,10 @@ function startDrawingPath() {
     points = [];
     ctx.lineWidth = 0.5;
       ctx.strokeStyle = '#000';
-    timer = setInterval(buildPath, 1000 / drawFPS);
+    timer = setInterval(buildPath, 330 / drawFPS);
 }
 
 function redrawCanvas() {
-    clearCanvas();
     ctx.beginPath();
     ctx.moveTo(points[0].x, points[0].y);
     ctx.lineWidth = 2;
@@ -229,16 +238,29 @@ function clearCanvas() {
 
 function stopDrawingPath() {
     clearInterval(timer);
-    clearCanvas();
 }
 
 /** Assumes that 'orig' is an SVG path */
 function buildPath() {
     var nextPoint = points.length * distancePerPoint;
+    if(!orig){
+      return;
+      stopDrawingPath();
+    }
     var pathLength = orig.getTotalLength();
+    console.log(nextPoint);
     console.log(pathLength)
-    if (nextPoint <= pathLength) {
+    if (nextPoint < pathLength) {
         points.push(orig.getPointAtLength(nextPoint));
         redrawCanvas();
+    }else{
+      origs_path_count+=1;
+      orig = origs[origs_path_count]
+      points = [];
+      if(origs_path_count>=origs_length)
+      {
+        stopDrawingPath();
+      }
     }
+
 }
