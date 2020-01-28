@@ -43,7 +43,7 @@ path.setAttribute("fill",item.fill);
 div.appendChild(path);
 
 // viewBox="0 0 500 500" width="500" height="500"
-holder.appendChild(div)
+//holder.appendChild(div)
 
 
 const PI = Math.PI,
@@ -81,44 +81,8 @@ var origs_path_count = 0;
 
 var orig = origs[origs_path_count];
 
-console.log(origs_length);
-console.log(origs);
 
-var list_to_save = {
-  "list":[]
-}
-
-var data_to_save = {
-  "d" : "",
-  "id" : "",
-  "strokewidth" : "",
-  "stroke" : "",
-  "fill" : ""
-}
-
-for(var i=0; i<origs_length;i++)
-{
-  var temp_data = data_to_save;
-  temp_data.d = origs[i].attributes.d.value;
-  temp_data.id = origs[i].attributes.id.value;
-  temp_data.strokewidth = "#00000";
-  temp_data.fill = origs[i].attributes.fill.value;
-  list_to_save.list.push(data_to_save);
-  console.log(temp_data);
-}
-
-console.log(list_to_save);
-
-function download(content, fileName, contentType) {
-  var a = document.createElement("a");
-  var file = new Blob([content], {type: contentType});
-  a.href = URL.createObjectURL(file);
-  a.download = fileName;
-  a.click();
-}
-download(JSON.stringify(list_to_save), 'json.json', 'text/plain');
-
-///startDrawingPath();
+startDrawingPath();
 
 function startDrawingPath() {
   clearCanvas();
