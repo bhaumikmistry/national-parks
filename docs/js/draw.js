@@ -82,7 +82,7 @@ var origs_path_count = 0;
 var orig = origs[origs_path_count];
 
 
-startDrawingPath();
+//startDrawingPath();
 
 function startDrawingPath() {
   clearCanvas();
