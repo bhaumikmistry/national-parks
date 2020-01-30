@@ -46,6 +46,7 @@ function addClickListener(){
         // e.target is our targeted element.
         if(e.target && e.target.nodeName == "A") {
             console.log(e.target.id + " clicked");
+            selectedParkByUser(e.target.id);
         }
     });
 }

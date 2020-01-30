@@ -1,50 +1,58 @@
 console.clear();
 
-var list_path = {
-  "list" : [
-    {
-      "d" : "M367.19 109.38L346.39 105.96",
-      "id" : "hTd6BERaX",
-      "strokewidth" : "0",
-      "stroke" : "#000000",
-      "fill" : "none"
-    },
-    {
-      "d" : "M328.13 117.19C323.61 101.69 319.36 101.2 315.35 115.73",
-      "id" : "hTd6Bsdsdsd",
-      "strokewidth" : "0",
-      "stroke" : "#000000",
-      "fill" : "none"
-    }
-  ]
+function selectedParkByUser(park_name)
+{
+  data=[]
+  var arr = []
+  var link = 'https://raw.githubusercontent.com/bhaumikmistry/national-parks/master/docs/json/'
+  var file_name = park_name + ".json";
+  console.log(file_name);
+  $.getJSON(link+file_name, function( data ) {
+    var arr=Object.entries(data); // this turns data into an array arr
+    console.log(arr[0]);
+    addSvgElement(arr[0]);
+
+    initData();
+    startDrawingPath();
+
+  }).fail(function(){
+    console.log("error with file "+file_name);
+  });  
 }
 
-var arr=Object.entries(list_path); // this turns data into an array arr
+function addSvgElement(arr){
+  var list = arr[1];
+  console.log(list);
 
-console.log(arr);
-console.log(arr[0][1][0].d);
-var item = arr[0][1][0];
+  var holder = document.getElementById("svg_holder");
+  while(holder.firstChild)
+  {
+    holder.removeChild(holder.firstChild);
+  }
 
-var holder = document.getElementById("svg_holder");
+  var div = document.createElement("svg");
 
-var div = document.createElement("svg");
-div.setAttribute("viewBox", "0 0 500 500"); 
-div.setAttribute("width","500");
-div.setAttribute("height","500");
+  for(var i=0;i<list.length;i++)
+  {
+    var item = list[i];
+    div.setAttribute("viewBox", "0 0 500 500"); 
+    div.setAttribute("width","500");
+    div.setAttribute("height","500");
 
-//var path = document.createElement("path");
-var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-path.setAttribute("d",item.d);
-path.setAttribute("id",item.id);
-path.setAttribute("stroke-width",item.strokewidth);
-path.setAttribute("stroke",item.stroke);
-path.setAttribute("fill",item.fill);
+    //var path = document.createElement("path");
+    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute("d",item.d);
+    path.setAttribute("id",item.id);
+    path.setAttribute("stroke-width","");
+    path.setAttribute("stroke","");
+    path.setAttribute("fill",item.fill);
 
-div.appendChild(path);
 
-// viewBox="0 0 500 500" width="500" height="500"
-//holder.appendChild(div)
+    div.appendChild(path);
+  }
+  holder.appendChild(div)
 
+}
 
 const PI = Math.PI,
 PI2 = PI * 2,
@@ -68,68 +76,81 @@ TIP_RAD = 2,
 COLOR = '#000',
 COLOR_OFF = '#343';
 
-var distancePerPoint = 3;
-var drawFPS = 30;
+// var distancePerPoint = 3;
+// var drawFPS = 30;
 
-var origs = document.querySelectorAll('path');
-var points;
-var timer;
-var canvas = document.querySelector('#top');
-var ctx = canvas.getContext('2d');
-var origs_length = origs.length; 
-var origs_path_count = 0;
+// var origs;
+// var points;
+// var timer;
+// var canvas;
+// var ctx
+// var origs_length;
+// var origs_path_count;
+// var orig
 
-var orig = origs[origs_path_count];
+
+// function initData()
+// {
+//   origs = document.querySelectorAll('path');
+//   points;
+//   timer;
+//   canvas = document.querySelector('#top');
+//   ctx = canvas.getContext('2d');
+//   origs_length = origs.length; 
+//   origs_path_count = 0;
+//   orig = origs[origs_path_count];
+//   startDrawingPath();
+// }
 
 
-//startDrawingPath();
 
-function startDrawingPath() {
-  clearCanvas();
-  points = [];
-  ctx.lineWidth = 0.5;
-    ctx.strokeStyle = '#000';
-  timer = setInterval(buildPath, 330 / drawFPS);
-}
 
-function redrawCanvas() {
-  ctx.beginPath();
-  ctx.moveTo(points[0].x, points[0].y);
-  ctx.lineWidth = 2;
-  for (var i = 1; i < points.length; i++) {
-      ctx.lineTo(points[i].x, points[i].y);
-  }
-  ctx.stroke();
-}
+// function startDrawingPath() {
+//   clearCanvas();
+//   points = [];
+//   ctx.lineWidth = 0.5;
+//     ctx.strokeStyle = '#000';
+//   timer = setInterval(buildPath, 330 / drawFPS);
+// }
 
-function clearCanvas() {
-  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-}
+// function redrawCanvas() {
+//   ctx.beginPath();
+//   ctx.moveTo(points[0].x, points[0].y);
+//   ctx.lineWidth = 2;
+//   for (var i = 1; i < points.length; i++) {
+//       ctx.lineTo(points[i].x, points[i].y);
+//   }
+//   ctx.stroke();
+// }
 
-function stopDrawingPath() {
-  clearInterval(timer);
-}
+// function clearCanvas() {
+//   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+// }
 
-/** Assumes that 'orig' is an SVG path */
-function buildPath() {
-  var nextPoint = points.length * distancePerPoint;
-  console.log(nextPoint);
-  console.log(orig);
-  if(!orig){
-    return;
-    stopDrawingPath();
-  }
-  var pathLength = orig.getTotalLength();
-  if (nextPoint < pathLength) {
-      points.push(orig.getPointAtLength(nextPoint));
-      redrawCanvas();
-  }else{
-    origs_path_count+=1;
-    orig = origs[origs_path_count]
-    points = [];
-    if(origs_path_count>=origs_length)
-    {
-      stopDrawingPath();
-    }
-  }
-}
+// function stopDrawingPath() {
+//   clearInterval(timer);
+// }
+
+// /** Assumes that 'orig' is an SVG path */
+// function buildPath() {
+//   var nextPoint = points.length * distancePerPoint;
+//   console.log(nextPoint);
+//   console.log(orig);
+//   if(!orig){
+//     return;
+//     stopDrawingPath();
+//   }
+//   var pathLength = orig.getTotalLength();
+//   if (nextPoint < pathLength) {
+//       points.push(orig.getPointAtLength(nextPoint));
+//       redrawCanvas();
+//   }else{
+//     origs_path_count+=1;
+//     orig = origs[origs_path_count]
+//     points = [];
+//     if(origs_path_count>=origs_length)
+//     {
+//       stopDrawingPath();
+//     }
+//   }
+// }
