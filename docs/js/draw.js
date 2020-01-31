@@ -12,6 +12,7 @@ function selectedParkByUser(park_name)
     console.log(arr[0]);
     addSvgElement(arr[0]);
 
+    //initPaint();
     initData();
     startDrawingPath();
 
@@ -51,6 +52,8 @@ function addSvgElement(arr){
     div.appendChild(path);
   }
   holder.appendChild(div)
+
+  initPaint(list);
 
 }
 
