@@ -7,6 +7,7 @@ var ctx;
 var distancePerPoint = 3;
 var drawFPS = 300;
 var points = [];
+var timer;
 
 function initData()
 {

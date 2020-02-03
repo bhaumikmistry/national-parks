@@ -12,9 +12,8 @@ function selectedParkByUser(park_name)
     console.log(arr[0]);
     addSvgElement(arr[0]);
 
-    //initPaint();
-    initData();
-    startDrawingPath();
+    initData();     // animate.js
+    startDrawingPath();     // animate.js
 
   }).fail(function(){
     console.log("error with file "+file_name);
@@ -44,7 +43,7 @@ function addSvgElement(arr){
     var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute("d",item.d);
     path.setAttribute("id",item.id);
-    path.setAttribute("stroke-width","");
+    path.setAttribute("stroke-width",item.strokewidth);
     path.setAttribute("stroke","");
     path.setAttribute("fill",item.fill);
 
