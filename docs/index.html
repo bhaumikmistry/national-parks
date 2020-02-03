@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
+
 <body translate="no">
     <nav>
         <div id="logo">National Parks</div>
 
         <label for="drop" class="toggle">Menu</label>
         <input type="checkbox" id="drop" />
-            <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li>
-                    <!-- First Tier Drop Down -->
-                    <label for="drop-1" class="toggle">List of Parks +</label>
-                    <a href="#">List of Parks</a>
-                    <input type="checkbox" id="drop-1"/>
-                    <ul id="park-list">
-                    </ul> 
-                </li>
-                <li>
-            </ul>        
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li>
+                <!-- First Tier Drop Down -->
+                <label for="drop-1" class="toggle">List of Parks +</label>
+                <a href="#">List of Parks</a>
+                <input type="checkbox" id="drop-1" />
+                <ul id="park-list">
+                </ul>
+            </li>
+            <li>
+        </ul>
     </nav>
-    <canvas height="500" width="500" id="top"></canvas>
     <canvas height="500" width="500" id="bottom"></canvas>
+    <canvas height="500" width="500" id="top"></canvas>
     <div id="svg_holder">
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/animate.js">  </script>  
-    <script type="text/javascript" src="js/paint.js">  </script>  
-    <script type="text/javascript" src="js/list.js">  </script>  
-    <script type="text/javascript" src="js/draw.js">  </script>  
+    <script type="text/javascript" src="js/animate.js">  </script>
+    <script type="text/javascript" src="js/paint.js">  </script>
+    <script type="text/javascript" src="js/list.js">  </script>
+    <script type="text/javascript" src="js/draw.js">  </script>
     <!-- <script type="text/javascript" src="js/svg_to_json_path_list.js">  </script>   -->
 </body>
-</html>
 
+</html>
