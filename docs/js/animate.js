@@ -9,6 +9,9 @@ var drawFPS = 300;
 var points = [];
 var timer;
 
+var current_line_width = 1;
+
+
 function initData()
 {
     distancePerPoint = 3;
@@ -19,12 +22,12 @@ function initData()
     origs_length = origs.length; 
     origs_path_count = 0;
     orig = origs[origs_path_count];
+    current_line_width = origs[origs_path_count].attributes['stroke-width'];
 }
 
 function startDrawingPath() {
     clearCanvas();
     points = [];
-    ctx.lineWidth = 0.5;
     ctx.strokeStyle = '#365956';
     timer = setInterval(buildPath, 30 / drawFPS);
 }
@@ -32,7 +35,8 @@ function startDrawingPath() {
 function redrawCanvas() {
     ctx.beginPath();
     ctx.moveTo(points[0].x, points[0].y);
-    ctx.lineWidth = 2;
+    ctx.lineWidth = origs[origs_path_count].attributes['stroke-width'].value;
+    console.log(ctx.lineWidth);
     for (var i = 1; i < points.length; i++) {
         ctx.lineTo(points[i].x, points[i].y);
     }
@@ -60,6 +64,8 @@ function buildPath() {
     }else{
         origs_path_count+=1;
         orig = origs[origs_path_count]
+        current_line_width = origs[origs_path_count].attributes['stroke-width'];
+        console.log(origs[origs_path_count].attributes['stroke-width']);
         points = [];
     if(origs_path_count>=origs_length)
     {

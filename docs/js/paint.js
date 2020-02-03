@@ -11,7 +11,7 @@ function initPaint(list)
     
     canvas = document.querySelector('#bottom');
     ctx = canvas.getContext('2d');
-
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = '#DADADA';
 

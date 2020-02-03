@@ -6,6 +6,7 @@ var file_name = 'parks.json'
 $.getJSON(link+file_name, function( data ) {
     var arr=Object.entries(data); // this turns data into an array arr
     addList(arr[0][1]);
+    addHomeClickListener();
     addClickListener();
 });    
 
@@ -38,6 +39,13 @@ function addList(list)
     // a.appendChild(text);
     // li.appendChild(a);
     //holder.appendChild(li);
+}
+
+function addHomeClickListener(){
+    console.log("Adding home click listeners");
+    document.getElementById("Home").addEventListener("click",function(e) {
+        selectedParkByUser("Home");
+    });
 }
 
 function addClickListener(){
