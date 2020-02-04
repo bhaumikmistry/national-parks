@@ -8,6 +8,7 @@ $.getJSON(link+file_name, function( data ) {
     addList(arr[0][1]);
     addHomeClickListener();
     addClickListener();
+    selectedParkByUser("Home");
 });    
 
 function addList(list)
