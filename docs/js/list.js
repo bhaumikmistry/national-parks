@@ -21,9 +21,11 @@ function addList(list)
     for(var i = 0; i < list.length; i++)
     {
         console.log("Creating item " + list[i].name);
-
         var li = document.createElement("li");
         var a = document.createElement("a");
+        var park_name = list[i].name;
+        park_name = park_name.replace("_"," ");
+        console.log("Creating item " + park_name);
         a.setAttribute("href","#");
         a.setAttribute("id",list[i].name);
         var text = document.createTextNode(list[i].name);
