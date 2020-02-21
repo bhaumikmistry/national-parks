@@ -36,7 +36,7 @@ function redrawCanvas() {
     ctx.beginPath();
     ctx.moveTo(points[0].x, points[0].y);
     ctx.lineWidth = origs[origs_path_count].attributes['stroke-width'].value;
-    console.log(ctx.lineWidth);
+    // console.log(ctx.lineWidth);
     for (var i = 1; i < points.length; i++) {
         ctx.lineTo(points[i].x, points[i].y);
     }
@@ -65,7 +65,7 @@ function buildPath() {
         origs_path_count+=1;
         orig = origs[origs_path_count]
         current_line_width = origs[origs_path_count].attributes['stroke-width'];
-        console.log(origs[origs_path_count].attributes['stroke-width']);
+        // console.log(origs[origs_path_count].attributes['stroke-width']);
         points = [];
     if(origs_path_count>=origs_length)
     {

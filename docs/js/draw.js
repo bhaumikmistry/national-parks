@@ -22,7 +22,7 @@ function selectedParkByUser(park_name)
 
 function addSvgElement(arr){
   var list = arr[1];
-  console.log(list);
+  // console.log(list);
 
   var holder = document.getElementById("svg_holder");
   while(holder.firstChild)
