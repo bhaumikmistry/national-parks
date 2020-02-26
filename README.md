@@ -6,3 +6,7 @@ The repository holds code for the webpage [National-park](https://bhaumikmistry.
 
 ![](https://media.giphy.com/media/fwbEHq0NSjKehgwJpz/giphy.gif)
 
+
+
+## Useful links
+- [One to multiline JSON file formatter](https://www.freeformatter.com/json-formatter.html#ad-output)
