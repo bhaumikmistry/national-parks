@@ -1,5 +1,3 @@
-console.clear();
-
 function selectedParkByUser(park_name)
 {
   data=[]

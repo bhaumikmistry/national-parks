@@ -27,8 +27,8 @@ function addList(list)
         park_name = park_name.replace("_"," ");
         console.log("Creating item " + park_name);
         a.setAttribute("href","#");
-        a.setAttribute("id",park_name);
-        var text = document.createTextNode(list[i].name);
+        a.setAttribute("id",list[i].name);
+        var text = document.createTextNode(park_name);
         a.appendChild(text);
         li.appendChild(a);
 
