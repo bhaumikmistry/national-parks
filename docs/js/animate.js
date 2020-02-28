@@ -1,4 +1,4 @@
-console.log("V.0.0.33");
+console.log("V.0.0.34");
 
 var origs;
 var canvas;
