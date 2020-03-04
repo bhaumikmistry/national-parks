@@ -139,7 +139,8 @@ nav {
 
     ul {
       li {
-        width: 350px;
+        width: auto;
+        font-size: 10px;
         float: none;
         display: list-item;
         position: relative;
@@ -325,15 +326,107 @@ li > a {
   /* Fisrt Tier Dropdown */
 //}
 
-@media all and (max-width: 330px) {
-  nav ul li {
-    display: block;
-    width: 94%;
-  }
+canvas {
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-canvas {
-    width: auto;
+path {
+  fill:none;
+}
+
+@media all and (max-width: 500px) {
+  
+  #logo {
+    display: block;
+    padding: 0 30px;
+    float: left;
+    font-size: 15px;
+    line-height: 60px;
+    color: #254441;
+  }
+  nav {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+    ul {
+      float: right;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      color: black;
+      li {
+        margin: 0px;
+        display: inline-block;
+        float: left;
+        background-color: #ffffff;
+      }
+    }
+  
+    a {
+      display: block;
+      padding: 10px 10px;
+      color: #254441;
+      font-size: 15px;
+      text-decoration: none;
+    }
+  
+    ul li ul li:hover {
+      font-size: 10px;
+      background: #ffffff;
+      color: #254441;
+    }
+  
+    a:hover {
+      background-color: #667C7A;
+      color: white;
+    }
+  
+    ul {
+      ul {
+        display: none;
+        position: absolute;
+  
+        /* has to be the same number as the "line-height" of "nav a" */
+        top: 60px;
+      }
+  
+      li:hover > ul {
+        display: inherit;
+      }
+  
+      ul {
+        li {
+          width: auto;
+          float: none;
+          display: list-item;
+          position: relative;
+        }
+  
+        ul li {
+          position: relative;
+          top: -60px;
+  
+          /* has to be the same number as the "width" of "nav ul ul li" */
+          left: 170px;
+        }
+      }
+    }
+  }
+  
+  canvas {
+    width: 80%;
     height: auto;
     max-width: 90%;
     max-height: 90%;
@@ -347,3 +440,4 @@ canvas {
   path {
     fill:none;
   }
+}
